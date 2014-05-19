@@ -48,9 +48,9 @@
 #ifdef BZERO
 #define count		x1
 #else
+#define val		w1
 #define count		x2
 #endif
-#define val		w1
 #define tmp1		x3
 #define tmp1w		w3
 #define tmp2		x4
