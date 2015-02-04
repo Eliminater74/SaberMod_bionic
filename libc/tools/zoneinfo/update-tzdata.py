@@ -208,6 +208,7 @@ def main():
   # one by one.
   current_version = GetCurrentTzDataVersion()
   current_filename = '%s.tar.gz' % current_version
+  tzdata_filenames = tzdata_filenames[-1:]  # Compile the latest one
   for filename in tzdata_filenames:
     if filename > current_filename:
       print 'Found new tzdata: %s' % filename
