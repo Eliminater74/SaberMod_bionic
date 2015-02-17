@@ -27,7 +27,7 @@ benchmark_c_flags = \
     -Wall -Wextra -Wunused \
     -Werror \
     -fno-builtin \
-    -std=gnu++11 \
+    -std=c++14 \
 
 benchmark_src_files = \
     benchmark_main.cpp \
