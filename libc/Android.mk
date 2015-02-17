@@ -64,7 +64,8 @@ libc_common_src_files := \
     stdio/sprintf.c \
 
 ifeq ($(TARGET_NEEDS_BIONIC_MD5),true)
-libc_common_src_files += bionic/md5.c
+libc_common_src_files += \
+    bionic/md5.c
 endif
 
 # Fortify implementations of libc functions.

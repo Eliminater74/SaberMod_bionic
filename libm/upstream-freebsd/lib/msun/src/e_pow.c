@@ -140,16 +140,28 @@ __ieee754_pow(double x, double y)
 
 #else
     /* y==zero: x**0 = 1 */
-	if((iy|ly)==0) return one; 	
 
-    /* x==1: 1**y = 1, even if y is NaN */
-	if (hx==0x3ff00000 && lx == 0) return one;
+    if (ly == 0) {
+        if (hy == ly) {
+            /* y==0.0, x**0 = 1 */
+            return one;
+        }
+        else if (iy > 0x7ff00000) {
+            /* y is NaN, return x+y (NaN) */
+            return x+y;
+        }
+    }
+    else if (iy >= 0x7ff00000) {
+        /* y is NaN, return x+y (NaN) */
+        return x+y;
+    }
 
     /* y!=zero: result is NaN if either arg is NaN */
 	if(ix > 0x7ff00000 || ((ix==0x7ff00000)&&(lx!=0)) ||
 	   iy > 0x7ff00000 || ((iy==0x7ff00000)&&(ly!=0))) 
 		return (x+0.0)+(y+0.0);
 #endif
+
     /* determine if y is an odd int when x < 0
      * yisint = 0	... y is not an integer
      * yisint = 1	... y is an odd int

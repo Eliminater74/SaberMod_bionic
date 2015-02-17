@@ -216,4 +216,3 @@ _memmove_words:
 	bx	lr
 //	.cfi_endproc
 END(memmove)
-

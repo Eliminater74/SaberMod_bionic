@@ -85,7 +85,6 @@ libc_common_additional_dependencies += $(cpu_variant_mk)
 
 cpu_variant_mk :=
 
-
 libc_crt_target_cflags_arm := \
     -I$(LOCAL_PATH)/arch-arm/include \
     -mthumb-interwork
