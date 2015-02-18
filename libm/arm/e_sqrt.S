@@ -27,7 +27,6 @@
 
 #include <private/bionic_asm.h>
 #include <private/libc_events.h>
-#include <machine/cpu-features.h>
 
 ENTRY(sqrt)
     vmov.f64    d0, r0, r1
